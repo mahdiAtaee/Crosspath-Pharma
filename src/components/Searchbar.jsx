@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import PLUS from '../assets/plus.png'
 import { AddDrug } from '../redux/DrugReducer'
+import { GetDrugs } from '../services/client'
 
 function Searchbar() {
   const navigate = useNavigate()
@@ -25,14 +26,12 @@ function Searchbar() {
   const handleAutoComplition = async (e) => {
     setSearch(e.target.value)
     const partialName = e.target.value
-    const res = await axios.get(
-      `https://api.crosspathpharma.ir/autocomplete?partial_name=${partialName}`,
-    )
-    if (res) {
+    const result = await GetDrugs(partialName)
+
+    if (result) {
       setIsOpencombo(true)
-      setSearchResult(res?.data)
+      setSearchResult(result)
     }
-    console.log(res)
   }
   const drugs = searchResult?.map((drug) => (
     <p

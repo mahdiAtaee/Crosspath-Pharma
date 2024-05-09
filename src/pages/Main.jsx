@@ -1,9 +1,16 @@
+import { useEffect, useRef } from 'react'
 import { Searchbar, MainTitle } from '../components/index'
 import DURG from '../assets/drug.png'
 
 function Main() {
+  const divRef = useRef(null)
+
+  useEffect(() => {
+    divRef.current.scrollIntoView({ behavior: 'smooth' })
+  })
+
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col" ref={divRef}>
       <MainTitle />
       <Searchbar />
       <div className="flex flex-col lg:flex-row items-center justify-center mt-8">
@@ -20,7 +27,7 @@ function Main() {
             sagittis orci ut diam condimentum, vel euismod erat placerat.
           </p>
         </div>
-        <div className="w-full md:w-[50%] order-1 lg:order-2 md:flex md:justify-center">
+        <div className="w-full md:w-[50%] order-1 lg:order-2 flex items-center justify-center">
           <img src={DURG} alt="drug" className="object-cover" />
         </div>
       </div>

@@ -1,6 +1,8 @@
 import CHEMIST from '../assets/Chemist.png'
+import { GetInteractionDescription } from '../services/client'
 
 function InteractionDescription() {
+  const result = GetInteractionDescription().then((data) => console.log(data))
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center mt-20">
       <div className="w-full md:w-[40%] order-2 lg:order-1">
@@ -44,7 +46,7 @@ function InteractionDescription() {
           Balali-Mood M, Pentland B. Effects of microsomal enzyme
         </p>
       </div>
-      <div className="w-full md:w-[40%] order-1 lg:order-2 md:flex md:justify-center">
+      <div className="w-full hidden md:w-[40%] order-1 lg:order-2 md:flex md:justify-center">
         <img src={CHEMIST} alt="CHEMIST" className="object-cover" />
       </div>
     </div>

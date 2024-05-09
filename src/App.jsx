@@ -18,10 +18,6 @@ const App = () => (
       <img src={Neon} alt="" className="w-screen h-screen absolute top-0 left-0 object-cover z-0" />
 
       <Topbar />
-      {/* <Searchbar /> */}
-
-      {/* <div className="px-6 h-[calc(100vh-72px)] w-screen lg:w-[60vw] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse z-10">
-        <div className="flex-1 h-fit pb-40"> */}
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Main />} />
@@ -39,9 +35,6 @@ const App = () => (
           <Route path="result" element={<VerifyData />} />
         </Route>
       </Routes>
-      {/* </div> */}
-      {/* <div className="xl:sticky relative top-0 h-fit"></div> */}
-      {/* </div> */}
     </div>
   </div>
 )

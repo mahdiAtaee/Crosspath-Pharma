@@ -1,19 +1,31 @@
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { addInteraction } from '../redux/DrugReducer'
 import GENE from '../assets/gene.png'
+import { CheckInteraction } from '../services/client'
 
 function Interactions({ drugs }) {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const handleCalculateInteractions = async () => {
-    const globalIds = drugs && Object.values(drugs).map((drug) => drug.id)
+    const globalIds = drugs && Object.values(drugs).map((drug) => drug.globalId)
     axios.defaults.headers = { 'Access-Control-Allow-Origin': '*' }
     axios.defaults.headers = { 'Content-Type': 'application/json' }
 
-    const data = JSON.stringify({
-      global_ids: globalIds,
-    })
+    // const { data } = await axios.post(
+    //   'https://api.crosspathpharma.ir/check_interactions',
+    //   JSON.stringify({
+    //     global_ids: [7164, 5549],
+    //   }),
+    // )
 
-    const result = await axios.post('https://api.crosspathpharma.ir/check_interactions', data)
+    const data = await CheckInteraction([7164, 5549])
 
-    console.log(result)
+    if (data) {
+      dispatch(addInteraction(data))
+      navigate('/calculate')
+    }
   }
 
   return (
