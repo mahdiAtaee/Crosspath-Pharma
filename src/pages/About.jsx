@@ -1,8 +1,15 @@
+import { useEffect, useRef } from 'react'
 import DOCTOR from '../assets/Doctor.png'
 
 function About() {
+  const divRef = useRef()
+
+  useEffect(() => divRef.current.scrollIntoView({ behavior: 'smooth' }))
+
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center mt-20 order-1 md:order-2">
+    <div
+      ref={divRef}
+      className="flex flex-col lg:flex-row items-center justify-center mt-20 order-1 md:order-2">
       <div className="w-full md:w-[40%] order-2 lg:order-1">
         <p className="font-bold text-white text-center md:text-left text-xl md:text-3xl pb-4 font-poppins">
           Safely calculate medication interactions on our intuitive website

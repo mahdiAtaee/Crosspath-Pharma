@@ -19,7 +19,11 @@ export const GetDrugs = async (partialName) => {
   return data
 }
 
-export const GetInteractionDescription = async () => {
-  const { data } = await axios.get('https://api.crosspathpharma.ir/interaction/2725.html')
+export const GetInteractionDescription = async (InteractionURL) => {
+  const { data } = await axios.get(`https://crosspathpharma.ir/intraction/${InteractionURL}`, {
+    headers: {
+      'Access-Control-Allow-Origin': 'no-cors',
+    },
+  })
   return data
 }

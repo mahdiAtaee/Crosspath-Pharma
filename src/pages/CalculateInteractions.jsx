@@ -8,7 +8,7 @@ import useWindowDemision from '../services/useWindowDeminsions'
 
 function CalculateInteractions() {
   const { interaction } = useSelector(getInteraction)
-  const [showDrug, setShowDrug] = useState(true)
+  const [showDrug, setShowDrug] = useState(false)
   const { width } = useWindowDemision()
 
   return (

@@ -13,14 +13,7 @@ function Interactions({ drugs }) {
     axios.defaults.headers = { 'Access-Control-Allow-Origin': '*' }
     axios.defaults.headers = { 'Content-Type': 'application/json' }
 
-    // const { data } = await axios.post(
-    //   'https://api.crosspathpharma.ir/check_interactions',
-    //   JSON.stringify({
-    //     global_ids: [7164, 5549],
-    //   }),
-    // )
-
-    const data = await CheckInteraction([7164, 5549])
+    const data = await CheckInteraction(globalIds)
 
     if (data) {
       dispatch(addInteraction(data))

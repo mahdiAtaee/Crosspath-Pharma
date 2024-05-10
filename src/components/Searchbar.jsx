@@ -46,7 +46,7 @@ function Searchbar() {
       <input
         dir="ltr"
         type="search"
-        placeholder="search: warpharin"
+        placeholder="search: warfarin"
         value={search}
         onChange={(e) => handleAutoComplition(e)}
         className="rounded-full w-full h-12 bg-black bg-opacity-80 p-4 border-2 border-white font-poppins text-white"

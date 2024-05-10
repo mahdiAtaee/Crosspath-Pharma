@@ -1,10 +1,18 @@
 /* eslint-disable indent */
 /* eslint-disable no-nested-ternary */
+import { useNavigate } from 'react-router-dom'
 import WARNING from '../assets/warning.png'
 
 function Calculate({ interaction }) {
+  const navigate = useNavigate()
+
+  const handleInteractionClick = (url) => {
+    const data = url.split('/')
+    navigate(`/description/${data[2]}`)
+  }
+
   const interactions = interaction && Object.values(interaction).map((drug, index) => (
-    <div key={drug?.url} className="bg-gray rounded-2xl p-4 w-[95%] min-h-20 bg-[#0D0D12A8] flex flex-col items-center justify-between">
+    <div key={drug?.url} onClick={() => handleInteractionClick(drug?.url)} className="bg-gray rounded-2xl p-4 w-[95%] min-h-20 bg-[#0D0D12A8] flex flex-col items-center justify-between">
       <div className="w-full flex items-center justify-between">
         <span className="text-white">{index + 1}</span>
         <div className="rounded-full flex items-center justify-center w-[80px]">
@@ -18,6 +26,8 @@ function Calculate({ interaction }) {
                 : '' || drug.riskRating === 'B'
                 ? 'bg-[#e0d649] '
                 : '' || drug.riskRating === 'C'
+                ? 'bg-[#c96129] '
+                : '' || drug.riskRating === 'D'
                 ? 'bg-[#ff0808] '
                 : ''
             } " font-bold text-sm font-poppins rounded-r-full p-1 text-center w-1/2"`}>
