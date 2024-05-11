@@ -1,11 +1,8 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { DrugList, MainTitle, Searchbar, Interactions, Calculate } from '../components'
-import { getDrugs } from '../redux/DrugReducer'
 
 function SearchResult() {
   const [showDrug, setShowDrug] = useState(true)
-  const drugs = useSelector(getDrugs)
 
   return (
     <div>
@@ -33,7 +30,7 @@ function SearchResult() {
           </span>
         </div>
         {showDrug ? <DrugList /> : <Calculate />}
-        <Interactions drugs={drugs} />
+        <Interactions />
       </div>
     </div>
   )

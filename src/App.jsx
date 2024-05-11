@@ -27,7 +27,7 @@ const App = () => (
         <Route path="/about" element={<FullLayout />}>
           <Route index element={<About />} />
         </Route>
-        <Route path="/description/:interactionID" element={<FullLayout />}>
+        <Route path="/interaction/:interactionID" element={<FullLayout />}>
           <Route index element={<InteractionDescription />} />
         </Route>
         <Route path="/verification" element={<FullLayout />}>

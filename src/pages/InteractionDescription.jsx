@@ -1,7 +1,11 @@
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
 /* eslint-disable indent */
 /* eslint-disable no-nested-ternary */
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import parse from 'html-react-parser'
 import { useParams } from 'react-router-dom'
 import CHEMIST from '../assets/Chemist.png'
 import { GetInteractionDescription } from '../services/client'
@@ -18,6 +22,28 @@ function InteractionDescription() {
     GetInteractionDescription(interactionID).then((data) => setdescribe(data))
   }, [])
 
+  // const RawData = `<p><b>Title</b> Abciximab / Dextran</p>
+  // <p></p>
+  // <p><b>Risk Rating</b> X: Avoid combination</p>
+  // <p><b>Summary</b> Dextran may enhance the anticoagulant effect of Abciximab. <b>Severity</b> Major <b>Onset</b> Rapid <b>Reliability Rating</b> Good </p>
+  // <p><b>Patient Management</b> Do not use IV dextran before or during percutaneous coronary intervention (PCI) with abciximab. This combination is listed as a contraindication in the abciximab prescribing information.</p>
+  // <p><b>Discussion</b> Eleven patients in the EPIC trial received IV dextran with abciximab. Five of these patients experienced major bleeding events and 4 experienced minor bleeding events compared with 0 of 5 placebo patients who received IV dextran without abciximab.<sup>1</sup><br><br>The abciximab prescribing information states that use of IV dextran before or during PCI with abciximab is contraindicated due to the increased risk of bleeding.<sup>2</sup><br><br>The mechanism of this interaction is likely due to additive bleeding risk.</p>
+  // <p><b>Footnotes</b> </p>
+  // <p>1. EPIC Investigators. Use of a monoclonal antibody directed against the platelet glycoprotein IIb/IIIa receptor in high-risk coronary angioplasty. <i>N Engl J Med</i>. 1994;330(14):956-961. <a target="_blank" href="https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=8121459">[PubMed 8121459]</a></p>
+  // <p>2. Reopro (abciximab) [prescribing information]. Horsham, PA: Janssen Biotech, Inc; August 2019.</p>
+  // <p></p>
+  // <hr>
+  // <span style="color: black; font-size: 80%; font-style: italic">© 2024 UpToDate, Inc. and its affiliates and/or licensors. All Rights Reserved.</span>`
+
+  const parsedData = parse(describe, {
+    replace: ({ name, children, prev }) => {
+      if (name === 'b' && prev == null) {
+        return <span className="block text-2xl font-poppins font-bold">{children[0]?.data}</span>
+      }
+    },
+    depth: 2,
+  })
+
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center mt-20">
       <div className="w-full md:w-[40%] order-2 lg:order-1">
@@ -29,8 +55,8 @@ function InteractionDescription() {
             RISK
           </span>
           <span
-            className={`${interaction
-              && interaction.riskRating === 'A'
+            className={`${
+              interaction && interaction.riskRating === 'A'
                 ? 'bg-[#08FF08] '
                 : '' || interaction.riskRating === 'B'
                 ? 'bg-[#e0d649] '
@@ -39,36 +65,21 @@ function InteractionDescription() {
                 : '' || interaction.riskRating === 'D'
                 ? 'bg-[#ff0808] '
                 : ''
-            } " bg-[#08FF08] font-bold text-lg font-poppins rounded-r-full p-1 text-center w-1/2  h-10 flex items-center justify-center"`}>
+            } font-bold text-lg font-poppins rounded-r-full p-1 text-center w-1/2  h-10 flex items-center justify-center`}>
             {interaction?.riskRating}
           </span>
         </div>
         <p className="font-poppins text-white text-xs leading-6 md:text-sm md:leading-7 my-4">
-          {describe}
+          {parsedData.map((item, index) => {
+            if (index > 4) {
+              return (
+                <p key={index} className="my-4 font-poppins">
+                  {item}
+                </p>
+              )
+            }
+          })}
         </p>
-        {/* <p className="font-poppins text-white text-xs leading-6 md:text-sm md:leading-7 my-4">
-          <span className="block font-bold font-poppins">Patient Management </span>
-          Monitor for decreased effects of acetaminophen as well as for evidence of hepatotoxicity
-          (due to increased concentrations of acetaminophen metabolites) with concurrent use of
-          carbamazepine. This is of particular concern in patients receiving high-dose or chronic
-          acetaminophen.
-        </p>
-        <p className="font-poppins text-white text-xs leading-6 md:text-sm md:leading-7 my-4">
-          <span className="block font-bold font-poppins">Discussion </span>
-          Acetaminophen clearance was 1.5- to 1.6-fold higher with concurrent use of an
-          enzyme-inducing antiseizure drug such as carbamazepine in two separate studies.1,2 Each
-          study included 6 participants who were receiving an enzyme inducing antiseizure drug (3
-          receiving carbamazepine alone or with phenytoin in one study,
-        </p>
-        <p className="font-poppins text-white text-xs leading-6 md:text-sm md:leading-7 my-4">
-          <span className="block font-bold font-poppins">Footnotes </span>
-          1. Perucca E, Richens A. Paracetamol disposition in normal subjects and in patients
-          treated with antiepileptic drugs. Br J Clin Pharmacol. 1979;7(2):201-206.[PubMed 760753]
-          2. Miners JO, Attwood J, Birkett DJ. Determinants of acetaminophen metabolism: effect of
-          inducers and inhibitors of drug metabolism on acetaminophen&apos;s metabolic pathways.Clin
-          Pharmacol Ther. 1984;35(4):480-486.[PubMed 6705446] 3. Prescott LF, Critchley JA,
-          Balali-Mood M, Pentland B. Effects of microsomal enzyme
-        </p> */}
       </div>
       <div className="w-full hidden md:w-[40%] order-1 lg:order-2 md:flex md:justify-center">
         <img src={CHEMIST} alt="CHEMIST" className="object-cover" />

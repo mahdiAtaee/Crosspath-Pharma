@@ -1,13 +1,28 @@
+/* eslint-disable no-unneeded-ternary */
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { addInteraction } from '../redux/DrugReducer'
+import { useEffect, useState } from 'react'
+import { addInteraction, getDrugs } from '../redux/DrugReducer'
 import GENE from '../assets/gene.png'
 import { CheckInteraction } from '../services/client'
 
-function Interactions({ drugs }) {
+function Interactions() {
+  const drugs = useSelector(getDrugs)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [inActiveButton, setInActiveButton] = useState(true)
+
+  useEffect(() => {
+    console.log(inActiveButton)
+    console.log(Object.values(drugs).length < 2)
+    if (Object.values(drugs).length < 2) {
+      setInActiveButton(false)
+    } else {
+      setInActiveButton(true)
+    }
+  }, [drugs])
+
   const handleCalculateInteractions = async () => {
     const globalIds = drugs && Object.values(drugs).map((drug) => drug.globalId)
     axios.defaults.headers = { 'Access-Control-Allow-Origin': '*' }
@@ -28,8 +43,11 @@ function Interactions({ drugs }) {
       </p>
       <button
         type="button"
+        disabled={inActiveButton ? false : true}
         onClick={handleCalculateInteractions}
-        className="bg-[#0FA8E0] text-white py-4 px-6 rounded-2xl custom-drop-shadow my-1 md:my-4 text-center flex items-center gap-2 justify-center">
+        className={`${
+          inActiveButton ? 'cursor-pointer' : 'cursor-not-allowed'
+        } bg-[#0FA8E0] text-white py-4 px-6 rounded-2xl custom-drop-shadow my-1 md:my-4 text-center flex items-center gap-2 justify-center`}>
         <img src={GENE} alt="vector" className="w-4 h-4" />
         <span>Calculate Interactions</span>
       </button>
