@@ -10,8 +10,8 @@ function Arrow({ dir, index }) {
     const ctx = gsap.context(() => {
       t1.current = gsap
         .timeline()
-        .to(`.arrow-${index}`, { opacity: 1, duration: 1, delay: 5.5 })
-        .to(`.arrow-${index}`, { opacity: 0, duration: 1 })
+        .to(`.arrow-${index}`, { opacity: 1, duration: 0.66, delay: 5.5 })
+        .to(`.arrow-${index}`, { opacity: 0, duration: 0.66 })
     }, roadmap)
 
     return () => {

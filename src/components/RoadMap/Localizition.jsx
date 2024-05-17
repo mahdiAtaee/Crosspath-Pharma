@@ -16,21 +16,21 @@ function Localization() {
 
       t1.current = gsap
         .timeline()
-        .to('.container', { opacity: 1, duration: 0.8, delay: 37 })
-        .to('.Localization', { top: 220, duration: 0.8 })
-        .to('.img', { opacity: 1, duration: 0.5 })
-        .to('.blue-container', { position: 'relative', top: 60, left: 90, duration: 1 })
-        .to('.other', { opacity: 0, duration: 1 })
+        .to('.container', { opacity: 1, duration: 0.53, delay: 32 })
+        .to('.Localization', { top: 160, duration: 0.53 })
+        .to('.img', { opacity: 1, duration: 0.33 })
+        .to('.blue-container', { position: 'relative', top: 45, left: 72, duration: 0.66 })
+        .to('.other', { opacity: 0, duration: 0.66, delay: 0.5 })
 
       t2.to('.green-container', {
         position: 'relative',
-        top: 60,
-        left: -85,
-        duration: 1,
-        delay: 39.5,
-      }).to('.green-container', { scale: 1.5, x: +60, y: 70, duration: 1 })
+        top: 45,
+        left: -70,
+        duration: 0.66,
+        delay: 34,
+      }).to('.green-container', { scale: 1.5, x: +30, y: 50, duration: 0.66, delay: 0.5 })
 
-      t3.to('.green-flag', { filter: 'brightness(0) invert(1)', duration: 1, delay: 41 })
+      t3.to('.green-flag', { filter: 'brightness(0) invert(1)', duration: 0.66, delay: 36 })
     }, roadmap)
 
     return () => {
@@ -40,23 +40,23 @@ function Localization() {
 
   return (
     <div ref={roadmap} className="flex items-center justify-start">
-      <div className="relative w-[200px] h-[200px] flex items-start justify-center opacity-0 container flex-col gap-14">
+      <div className="relative w-[180px] h-[150px] flex items-center justify-center opacity-0 container flex-col gap-10">
         <div className="flex items-center justify-center gap-8 img opacity-0">
-          <div className="w-14 h-14 relative blue-container other">
-            <img src={BLUEFLAG} alt="BLUEFLAG" className="absolute bottom-[85%] right-0 w-4" />
-            <img src={DATATABLE} alt="DATATABLE" className="absolute top-0 left-0 w-14" />
+          <div className="w-10 h-10 relative blue-container other">
+            <img src={BLUEFLAG} alt="BLUEFLAG" className="absolute bottom-[80%] right-0 w-3" />
+            <img src={DATATABLE} alt="DATATABLE" className="absolute top-0 left-0 w-12" />
           </div>
-          <div className="w-14 h-14 relative green-container">
+          <div className="w-10 h-10 relative green-container">
             <img
               src={GREENFLAG}
               alt="GREENFLAG"
-              className="green-flag absolute bottom-[85%] right-0 w-4"
+              className="green-flag absolute bottom-[85%] right-0 w-3"
             />
-            <img src={DATATABLE} alt="DATATABLE" className="absolute top-0 left-0 w-14" />
+            <img src={DATATABLE} alt="DATATABLE" className="absolute top-0 left-0 w-12" />
           </div>
         </div>
-        <div className="flex items-center justify-center gap-6 other img opacity-0">
-          <div className="w-16 h-16 relative">
+        <div className="flex items-center justify-center gap-5 other img opacity-0">
+          <div className="w-12 h-12 relative">
             <img
               src={GREENFLAG}
               alt="GREENFLAG"
@@ -64,7 +64,7 @@ function Localization() {
             />
             <img src={BOX} alt="BOX" className="absolute bottom-0 left-0 w-full" />
           </div>
-          <div className="w-16 h-16 relative">
+          <div className="w-12 h-12 relative">
             <img
               src={BLUEFLAG}
               alt="BLUEFLAG"
@@ -73,7 +73,7 @@ function Localization() {
             <img src={BOX} alt="BOX" className="absolute bottom-0 left-0 w-full" />
           </div>
         </div>
-        <p className="Localization text-white font-bold text-xl font-poppins absolute top-[50%] text-center w-[200px]">
+        <p className="Localization text-white font-bold text-sm md:text-lg font-poppins absolute top-[50%] text-center w-[180px]">
           Localization & Standardization
         </p>
       </div>

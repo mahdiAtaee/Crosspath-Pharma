@@ -11,12 +11,12 @@ function Deployment() {
       const t2 = gsap.timeline()
       t1.current = gsap
         .timeline()
-        .to('.container', { opacity: 1, duration: 0.8, delay: 43 })
-        .to('.Deployment', { top: 120, duration: 0.8 })
-        .to('.main', { opacity: 1, duration: 0.8 })
-        .to('.other', { opacity: 0, duration: 0.5, delay: 1 })
+        .to('.container', { opacity: 1, duration: 0.53, delay: 39 })
+        .to('.Deployment', { top: 120, duration: 0.53 })
+        .to('.main', { opacity: 1, duration: 0.53 })
+        .to('.other', { opacity: 0, duration: 0.33, delay: 1 })
 
-      t2.to('.server-1', { scale: 1.5, x: '+50', y: '+50', duration: 0.5, delay: 46.5 })
+      t2.to('.server-1', { scale: 1.5, x: '+50', y: '+50', duration: 0.33, delay: 42.5 })
     }, roadmap)
 
     return () => {
@@ -41,7 +41,7 @@ function Deployment() {
             className="server-3 absolute bottom-0 left-[50%] -translate-x-[50%] w-14 other"
           />
         </div>
-        <p className="Deployment text-white font-bold text-xl font-poppins absolute top-[50%] text-center w-[150px]">
+        <p className="Deployment text-white font-bold text-sm md:text-lg font-poppins absolute top-[50%] text-center w-[150px]">
           Deployment
         </p>
       </div>

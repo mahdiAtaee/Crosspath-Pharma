@@ -32,56 +32,56 @@ function RoadMap() {
     const thirdStation = Arrow6.current
     setTimeout(() => {
       firstStation.scrollIntoView({ behavior: 'smooth' })
-    }, 17000)
+    }, 15000)
     setTimeout(() => {
       SecondStation.scrollIntoView({ behavior: 'smooth' })
-    }, 36000)
+    }, 31000)
     setTimeout(() => {
       thirdStation.scrollIntoView({ behavior: 'smooth' })
-    }, 47000)
+    }, 44000)
   }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       t1.current = gsap
         .timeline()
-        .to('.arrow-1', { opacity: 1, duration: 1, delay: 6 })
-        .to('.arrow-1', { opacity: 0, duration: 1 })
+        .to('.arrow-1', { opacity: 1, duration: 0.66, delay: 6.5 })
+        .to('.arrow-1', { opacity: 0, duration: 0.66 })
     }, Arrow1)
 
     const ctx1 = gsap.context(() => {
       t1.current = gsap
         .timeline()
-        .to('.arrow-2', { opacity: 1, duration: 1, delay: 17 })
-        .to('.arrow-2', { opacity: 0, duration: 1 })
+        .to('.arrow-2', { opacity: 1, duration: 0.66, delay: 14.5 })
+        .to('.arrow-2', { opacity: 0, duration: 0.66 })
     }, Arrow2)
 
     const ctx2 = gsap.context(() => {
       t1.current = gsap
         .timeline()
-        .to('.arrow-3', { opacity: 1, duration: 1, delay: 27 })
-        .to('.arrow-3', { opacity: 0, duration: 1 })
+        .to('.arrow-3', { opacity: 1, duration: 0.66, delay: 22 })
+        .to('.arrow-3', { opacity: 0, duration: 0.66 })
     }, Arrow3)
 
     const ctx3 = gsap.context(() => {
       t1.current = gsap
         .timeline()
-        .to('.arrow-4', { opacity: 1, duration: 1, delay: 36 })
-        .to('.arrow-4', { opacity: 0, duration: 1 })
+        .to('.arrow-4', { opacity: 1, duration: 0.66, delay: 30.5 })
+        .to('.arrow-4', { opacity: 0, duration: 0.66 })
     }, Arrow4)
 
     const ctx4 = gsap.context(() => {
       t1.current = gsap
         .timeline()
-        .to('.arrow-5', { opacity: 1, duration: 1, delay: 42 })
-        .to('.arrow-5', { opacity: 0, duration: 1 })
+        .to('.arrow-5', { opacity: 1, duration: 0.66, delay: 37 })
+        .to('.arrow-5', { opacity: 0, duration: 0.66 })
     }, Arrow5)
 
     const ctx5 = gsap.context(() => {
       t1.current = gsap
         .timeline()
-        .to('.arrow-6', { opacity: 1, duration: 1, delay: 47 })
-        .to('.arrow-6', { opacity: 0, duration: 1 })
+        .to('.arrow-6', { opacity: 1, duration: 0.66, delay: 43.5 })
+        .to('.arrow-6', { opacity: 0, duration: 0.66 })
     }, Arrow6)
 
     return () => {
@@ -96,39 +96,39 @@ function RoadMap() {
   return (
     <div className="w-[90%] md:w-[40vw] mx-auto" ref={divRef}>
       <DataCollection />
-      <div ref={Arrow1} className="relative w-full min-h-[200px]">
-        <img src={ARROW} alt="arrow" className="arrow-1 opacity-0 mx-auto w-[100px] h-[100px]" />
+      <div ref={Arrow1} className="relative w-full min-h-[120px]">
+        <img src={ARROW} alt="arrow" className="arrow-1 opacity-0 mx-auto w-[80px] h-[80px]" />
       </div>
       <DataIntegration />
-      <div ref={Arrow2} className="relative w-full min-h-[200px]">
+      <div ref={Arrow2} className="relative w-full min-h-[120px]">
         <img
           src={ARROW}
           alt="arrow"
-          className="arrow-2 opacity-0 mx-auto w-[100px] h-[100px] -scale-x-100"
+          className="arrow-2 opacity-0 mx-auto w-[80px] h-[80px] -scale-x-100"
         />
       </div>
       <DataValidation />
-      <div ref={Arrow3} className="relative w-full min-h-[200px]">
-        <img src={ARROW} alt="arrow" className="arrow-3 opacity-0 mx-auto w-[100px] h-[100px]" />
+      <div ref={Arrow3} className="relative w-full min-h-[120px]">
+        <img src={ARROW} alt="arrow" className="arrow-3 opacity-0 mx-auto w-[80px] h-[80px]" />
       </div>
       <FeatureExtraction />
-      <div ref={Arrow4} className="relative w-full min-h-[200px]">
+      <div ref={Arrow4} className="relative w-full min-h-[120px]">
         <img
           src={ARROW}
           alt="arrow"
-          className="arrow-4 opacity-0 mx-auto w-[100px] h-[100px] -scale-x-100"
+          className="arrow-4 opacity-0 mx-auto w-[80px] h-[80px] -scale-x-100"
         />
       </div>
       <Localizition />
-      <div ref={Arrow5} className="relative w-full min-h-[200px]">
-        <img src={ARROW} alt="arrow" className="arrow-5 opacity-0 mx-auto w-[100px] h-[100px]" />
+      <div ref={Arrow5} className="relative w-full min-h-[120px] mt-14">
+        <img src={ARROW} alt="arrow" className="arrow-5 opacity-0 mx-auto w-[80px] h-[80px]" />
       </div>
       <Deployment />
-      <div ref={Arrow6} className="relative w-full min-h-[200px]">
+      <div ref={Arrow6} className="relative w-full min-h-[120px] mt-24">
         <img
           src={ARROW}
           alt="arrow"
-          className="arrow-6 opacity-0 mx-auto w-[100px] h-[100px] -scale-x-100"
+          className="arrow-6 opacity-0 mx-auto w-[80px] h-[80px] -scale-x-100"
         />
       </div>
       <Maintenance />

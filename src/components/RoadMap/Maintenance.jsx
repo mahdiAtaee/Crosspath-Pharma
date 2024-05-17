@@ -15,25 +15,25 @@ function Maintenance() {
       const t4 = gsap.timeline()
       t1.current = gsap
         .timeline()
-        .to('.container', { opacity: 1, duration: 0.8, delay: 48 })
-        .to('.Maintenance', { top: 120, duration: 0.8 })
-        .to('.main', { opacity: 1, duration: 0.8 })
-        .to('.tool', { top: 150, duration: 0.8 })
-        .to('.tool', { opacity: 1, duration: 0.8 })
-        .to('.tool', { opacity: 0, duration: 0.8 })
+        .to('.container', { opacity: 1, duration: 0.53, delay: 45 })
+        .to('.Maintenance', { top: 120, duration: 0.53 })
+        .to('.main', { opacity: 1, duration: 0.53 })
+        .to('.tool', { top: 150, duration: 0.53 })
+        .to('.tool', { opacity: 1, duration: 0.53 })
+        .to('.tool', { opacity: 0, duration: 0.53 })
 
-      t2.to('.tool-2', { opacity: 1, duration: 0.5, delay: 52 })
+      t2.to('.tool-2', { opacity: 1, duration: 0.33, delay: 49 })
         .to('.tool-2', {
           left: -20,
-          duration: 0.5,
+          duration: 0.33,
         })
-        .to('.center-box', { borderColor: 'transparent', duration: 0.5 })
+        .to('.center-box', { borderColor: 'transparent', duration: 0.33 })
 
-      t3.to('.multiply', { opacity: 0, duration: 0.8, delay: 52 })
-        .to('.multiply-2', { opacity: 0, duration: 0.5 })
-        .to('.tool-2', { left: 50, scale: 2, duration: 0.5 })
+      t3.to('.multiply', { opacity: 0, duration: 0.53, delay: 49 })
+        .to('.multiply-2', { opacity: 0, duration: 0.33 })
+        .to('.tool-2', { left: 50, scale: 2, duration: 0.33 })
 
-      t4.to('.other', { opacity: 0, duration: 0.5, delay: 53 })
+      t4.to('.other', { opacity: 0, duration: 0.33, delay: 50 })
     }, roadmap)
 
     return () => {
@@ -78,7 +78,7 @@ function Maintenance() {
             className="server-3 absolute bottom-0 left-[50%] -translate-x-[50%] w-14 other"
           />
         </div>
-        <p className="Maintenance text-white font-bold text-xl font-poppins absolute top-[50%] text-center w-[150px]">
+        <p className="Maintenance text-white font-bold text-sm md:text-lg font-poppins absolute top-[50%] text-center w-[150px]">
           Maintenance
         </p>
         <img
