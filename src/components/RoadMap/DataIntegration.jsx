@@ -8,6 +8,12 @@ function DataIntegration() {
   const t1 = useRef()
 
   useEffect(() => {
+    setTimeout(() => {
+      roadmap.current.scrollIntoView({ behavior: 'smooth' })
+    }, 15000)
+  }, [])
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
       t1.current = gsap
         .timeline()

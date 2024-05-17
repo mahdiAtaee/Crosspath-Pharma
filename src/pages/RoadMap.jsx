@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ARROW from '../assets/arrow (2).png'
 import {
   DataCollection,
@@ -24,22 +23,6 @@ function RoadMap() {
   const Arrow5 = useRef(null)
   const Arrow6 = useRef(null)
   const t1 = useRef()
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    const firstStation = Arrow2.current
-    const SecondStation = Arrow4.current
-    const thirdStation = Arrow6.current
-    setTimeout(() => {
-      firstStation.scrollIntoView({ behavior: 'smooth' })
-    }, 15000)
-    setTimeout(() => {
-      SecondStation.scrollIntoView({ behavior: 'smooth' })
-    }, 31000)
-    setTimeout(() => {
-      thirdStation.scrollIntoView({ behavior: 'smooth' })
-    }, 44000)
-  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {

@@ -7,6 +7,12 @@ function DataValidation() {
   const t1 = useRef()
 
   useEffect(() => {
+    setTimeout(() => {
+      roadmap.current.scrollIntoView({ behavior: 'smooth' })
+    }, 24000)
+  }, [])
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
       const t2 = gsap.timeline()
       t1.current = gsap

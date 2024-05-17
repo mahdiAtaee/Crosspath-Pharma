@@ -10,6 +10,12 @@ function Localization() {
   const t1 = useRef()
 
   useEffect(() => {
+    setTimeout(() => {
+      roadmap.current.scrollIntoView({ behavior: 'smooth' })
+    }, 39000)
+  }, [])
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
       const t2 = gsap.timeline()
       const t3 = gsap.timeline()
