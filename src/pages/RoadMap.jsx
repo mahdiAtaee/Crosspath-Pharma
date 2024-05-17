@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import ARROW from '../assets/flash.png'
+import ARROW from '../assets/arrow (2).png'
 import {
   DataCollection,
   DataIntegration,
@@ -97,38 +97,38 @@ function RoadMap() {
     <div className="w-[90%] md:w-[40vw] mx-auto" ref={divRef}>
       <DataCollection />
       <div ref={Arrow1} className="relative w-full min-h-[120px]">
-        <img src={ARROW} alt="arrow" className="arrow-1 opacity-0 mx-auto w-[80px] h-[80px]" />
+        <img src={ARROW} alt="arrow" className="arrow-1 opacity-0 mx-auto w-[100px] h-[100px] brightness-100 invert-0" />
       </div>
       <DataIntegration />
       <div ref={Arrow2} className="relative w-full min-h-[120px]">
         <img
           src={ARROW}
           alt="arrow"
-          className="arrow-2 opacity-0 mx-auto w-[80px] h-[80px] -scale-x-100"
+          className="arrow-2 opacity-0 mx-auto w-[100px] h-[100px] -scale-x-100 brightness-100 invert-0"
         />
       </div>
       <DataValidation />
       <div ref={Arrow3} className="relative w-full min-h-[120px]">
-        <img src={ARROW} alt="arrow" className="arrow-3 opacity-0 mx-auto w-[80px] h-[80px]" />
+        <img src={ARROW} alt="arrow" className="arrow-3 opacity-0 mx-auto w-[100px] h-[100px] brightness-100 invert-0" />
       </div>
       <FeatureExtraction />
       <div ref={Arrow4} className="relative w-full min-h-[120px]">
         <img
           src={ARROW}
           alt="arrow"
-          className="arrow-4 opacity-0 mx-auto w-[80px] h-[80px] -scale-x-100"
+          className="arrow-4 opacity-0 mx-auto w-[100px] h-[100px] -scale-x-100 brightness-100 invert-0"
         />
       </div>
       <Localizition />
       <div ref={Arrow5} className="relative w-full min-h-[120px] mt-14">
-        <img src={ARROW} alt="arrow" className="arrow-5 opacity-0 mx-auto w-[80px] h-[80px]" />
+        <img src={ARROW} alt="arrow" className="arrow-5 opacity-0 mx-auto w-[100px] h-[100px] brightness-100 invert-0" />
       </div>
       <Deployment />
       <div ref={Arrow6} className="relative w-full min-h-[120px] mt-24">
         <img
           src={ARROW}
           alt="arrow"
-          className="arrow-6 opacity-0 mx-auto w-[80px] h-[80px] -scale-x-100"
+          className="arrow-6 opacity-0 mx-auto w-[100px] h-[100px] -scale-x-100 brightness-100 invert-0"
         />
       </div>
       <Maintenance />
