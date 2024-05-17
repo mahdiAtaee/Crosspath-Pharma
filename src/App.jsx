@@ -9,6 +9,7 @@ import {
   InteractionDescription,
   Verification,
   VerifyData,
+  RoadMap,
 } from './pages'
 import { MainLayout, FullLayout } from './Layout'
 
@@ -33,6 +34,9 @@ const App = () => (
         <Route path="/verification" element={<FullLayout />}>
           <Route index element={<Verification />} />
           <Route path="result" element={<VerifyData />} />
+        </Route>
+        <Route path="/roadmap" element={<FullLayout />}>
+          <Route index element={<RoadMap />} />
         </Route>
       </Routes>
     </div>

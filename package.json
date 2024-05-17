@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.13",
+    "@gsap/react": "^2.1.1",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
+    "gsap": "^3.12.5",
     "html-react-parser": "^5.1.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
